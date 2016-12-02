@@ -81,6 +81,12 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.3.168\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="YandexMetrica.Xamarin.Android">
+      <HintPath>..\packages\Yandex.Metrica.Xamarin.1.1.0\lib\MonoAndroid10\YandexMetrica.Xamarin.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="YandexMetrica.Xamarin.PCL">
+      <HintPath>..\packages\Yandex.Metrica.Xamarin.1.1.0\lib\MonoAndroid10\YandexMetrica.Xamarin.PCL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AppMetricaXamarin\AppMetricaXamarin.csproj">

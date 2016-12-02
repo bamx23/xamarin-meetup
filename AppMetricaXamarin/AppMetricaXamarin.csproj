@@ -5,7 +5,6 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4E057CA4-5A5F-41EB-A0B1-9EC2DD36A779}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
     <RootNamespace>AppMetricaXamarin</RootNamespace>
     <AssemblyName>AppMetricaXamarin</AssemblyName>
@@ -49,6 +48,9 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="YandexMetrica.Xamarin.PCL">
+      <HintPath>..\packages\Yandex.Metrica.Xamarin.1.1.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\YandexMetrica.Xamarin.PCL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
