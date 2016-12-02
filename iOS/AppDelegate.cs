@@ -14,6 +14,8 @@ namespace AppMetricaXamarin.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 
+			YandexMetricaIOS.YandexMetricaImplementation.Activate(ApiKeyProvider.ApiKey());
+
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);

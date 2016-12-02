@@ -22,6 +22,8 @@ namespace AppMetricaXamarin.Droid
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
+			YandexMetricaAndroid.YandexMetricaImplementation.Activate(this, ApiKeyProvider.ApiKey(), Application);
+
 			LoadApplication(new App());
 		}
 	}
