@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using YandexMetricaPCL;
 
@@ -6,14 +7,28 @@ namespace AppMetricaXamarin
 {
 	public partial class AppMetricaXamarinPage : ContentPage
 	{
+		public List<string> ResultPlots { get; protected set; }
+
 		public AppMetricaXamarinPage()
 		{
 			InitializeComponent();
+			InitializeVisibility();
+			InitializeBinding();
+		}
 
+		void InitializeVisibility()
+		{
 			sendButton.IsEnabled = false;
 
 			voteView.IsVisible = true;
-			thanksLabel.IsVisible = false;
+			resultsView.IsVisible = false;
+		}
+
+		void InitializeBinding()
+		{
+			ResultPlots = new List<string> { "График 1", "График 2" };
+
+			BindingContext = this;
 		}
 
 		void PickerSelectedIndexChanged(object sender, System.EventArgs e)
@@ -31,7 +46,7 @@ namespace AppMetricaXamarin
 			YandexMetrica.Implementation.ReportEvent("user-info", results);
 
 			voteView.IsVisible = false;
-			thanksLabel.IsVisible = true;
+			resultsView.IsVisible = true;
 		}
 
 		static void AddResult(Dictionary<string, string> results, string key, Picker picker)

@@ -13,6 +13,7 @@ namespace AppMetricaXamarin.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
+			global::CarouselView.FormsPlugin.iOS.CarouselViewRenderer.Init();
 
 			YandexMetricaIOS.YandexMetricaImplementation.Activate(ConfigProvider.Config());
 
