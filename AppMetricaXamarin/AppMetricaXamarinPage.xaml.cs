@@ -7,7 +7,7 @@ namespace AppMetricaXamarin
 {
 	public partial class AppMetricaXamarinPage : ContentPage
 	{
-		public List<string> ResultPlots { get; protected set; }
+		public List<OxyPlot.PlotModel> ResultPlots { get; protected set; }
 
 		public AppMetricaXamarinPage()
 		{
@@ -20,13 +20,31 @@ namespace AppMetricaXamarin
 		{
 			sendButton.IsEnabled = false;
 
-			voteView.IsVisible = true;
-			resultsView.IsVisible = false;
+			voteView.IsVisible = false;
+			resultsView.IsVisible = true;
 		}
 
 		void InitializeBinding()
 		{
-			ResultPlots = new List<string> { "График 1", "График 2" };
+			ResultPlots = new List<OxyPlot.PlotModel> { 
+				new OxyPlot.PlotModel {
+					Title = "Пол",
+				},
+				new OxyPlot.PlotModel {
+					Title = "Любят"
+				},
+			};
+
+			var genderStubSeries = new OxyPlot.Series.PieSeries();
+			genderStubSeries.Slices.Add(new OxyPlot.Series.PieSlice("Мальчик", 32));
+			genderStubSeries.Slices.Add(new OxyPlot.Series.PieSlice("Девочка", 23));
+			ResultPlots[0].Series.Add(genderStubSeries);
+
+			var animalStubSeries = new OxyPlot.Series.PieSeries();
+			animalStubSeries.Slices.Add(new OxyPlot.Series.PieSlice("Собак", 15));
+			animalStubSeries.Slices.Add(new OxyPlot.Series.PieSlice("Кошек", 17));
+			animalStubSeries.Slices.Add(new OxyPlot.Series.PieSlice("Черепах", 2));
+			ResultPlots[1].Series.Add(animalStubSeries);
 
 			BindingContext = this;
 		}

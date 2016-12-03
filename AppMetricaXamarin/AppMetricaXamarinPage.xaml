@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:AppMetricaXamarin" x:Class="AppMetricaXamarin.AppMetricaXamarinPage" xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" Padding="0, 20, 0, 0">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:AppMetricaXamarin" x:Class="AppMetricaXamarin.AppMetricaXamarinPage" xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms" Padding="0, 20, 0, 0">
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="15">
+				
 				<Label Text="Xamarin Meetup" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" />
 				<Label Text="Это тестовое приложение для митапа. Оно написано на Xamarin.Forms. В нём подключена и активирована AppMetrica." HorizontalTextAlignment="Center" />
+				
 				<StackLayout x:Name="voteView" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
 					<Label Text="Ответьте на несколько вопросов:" HorizontalTextAlignment="Center" />
 					<Grid>
@@ -47,19 +49,26 @@
 					</Grid>
 					<Button Text="Отправить" x:Name="sendButton" Clicked="SendButtonClicked" />
 				</StackLayout>
-				<StackLayout x:Name="resultsView" VerticalOptions="Fill" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
+				
+				<StackLayout x:Name="resultsView" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
 					<Label Text="Спасибо за Ваш ответ!" HorizontalTextAlignment="Center" />
 					
 					<Label Text="Результаты:" HorizontalTextAlignment="Center" />
-					<carousel:CarouselViewControl x:Name="plotsCarousel" ItemsSource="{Binding ResultPlots}" InterPageSpacing="10" PageIndicators="true" HeightRequest="250">
+					<carousel:CarouselViewControl x:Name="plotsCarousel" ItemsSource="{Binding ResultPlots}" InterPageSpacing="10" PageIndicators="true" HeightRequest="270">
 						<carousel:CarouselViewControl.ItemTemplate>
 							<DataTemplate>
-								<Label Text="{Binding}" HorizontalTextAlignment="Center" FontSize="Large" />
+								<Grid>
+									<oxy:PlotView Model="{Binding}" Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" HeightRequest="240" />
+
+									<!-- Workaround for swipe gesture -->
+									<ContentView Grid.Row="0" Grid.Column="0" VerticalOptions="Fill" HorizontalOptions="Fill" />
+								</Grid>
 							</DataTemplate>
 						</carousel:CarouselViewControl.ItemTemplate>
 					</carousel:CarouselViewControl>
 					<Button Text="Обновить" />
 				</StackLayout>
+				
 			</StackLayout>
 		</ScrollView>
 	</ContentPage.Content>

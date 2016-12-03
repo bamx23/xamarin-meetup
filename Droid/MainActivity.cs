@@ -22,6 +22,7 @@ namespace AppMetricaXamarin.Droid
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 			global::CarouselView.FormsPlugin.Android.CarouselViewRenderer.Init();
+			global::OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
 
 			YandexMetricaAndroid.YandexMetricaImplementation.Activate(this, ConfigProvider.Config(), Application);
 

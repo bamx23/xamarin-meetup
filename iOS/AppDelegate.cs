@@ -14,6 +14,7 @@ namespace AppMetricaXamarin.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 			global::CarouselView.FormsPlugin.iOS.CarouselViewRenderer.Init();
+			global::OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
 
 			YandexMetricaIOS.YandexMetricaImplementation.Activate(ConfigProvider.Config());
 
