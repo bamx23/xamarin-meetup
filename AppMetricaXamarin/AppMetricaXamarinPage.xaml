@@ -1,4 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:AppMetricaXamarin" x:Class="AppMetricaXamarin.AppMetricaXamarinPage">
-	<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:AppMetricaXamarin" x:Class="AppMetricaXamarin.AppMetricaXamarinPage" Padding="0, 20, 0, 0">
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
+				
+				<Label Text="Xamarin Meetup" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" />
+				<Label Text="Это тестовое приложение для митапа. Оно написано на Xamarin.Forms. В нём подключена и активирована AppMetrica." HorizontalTextAlignment="Center" />
+
+				<StackLayout x:Name="voteView" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
+					<Label Text="Ответьте на несколько вопросов:" HorizontalTextAlignment="Center" />
+
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="3*" />
+							<ColumnDefinition Width="4*" />
+						</Grid.ColumnDefinitions>
+
+						<!-- Row 0 -->
+						<Label Text="Пол:" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+						<Picker x:Name="genderPicker" Title="Кем себя считаете?" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0" SelectedIndexChanged="PickerSelectedIndexChanged" HorizontalOptions="FillAndExpand">
+					    	<Picker.Items>
+					            <x:String>Мальчик</x:String>
+					            <x:String>Девочка</x:String>
+					        </Picker.Items>
+					    </Picker>
+
+						<!-- Row 1 -->
+						<Label Text="Предпочитаю:" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+						<Picker x:Name="animalPicker" Title="Какую зверушку?" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0" SelectedIndexChanged="PickerSelectedIndexChanged" HorizontalOptions="FillAndExpand">
+					    	<Picker.Items>
+					            <x:String>Собак</x:String>
+					            <x:String>Кошек</x:String>
+								<x:String>Черепах</x:String>
+								<x:String>Рыбок</x:String>
+					        </Picker.Items>
+					    </Picker>
+
+						<!-- Row 2 -->
+						<Label Text="Использую:" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+						<Picker x:Name="osPicker" Title="Какую OS?" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0" SelectedIndexChanged="PickerSelectedIndexChanged" HorizontalOptions="FillAndExpand">
+					    	<Picker.Items>
+					            <x:String>Windows</x:String>
+					            <x:String>Linux</x:String>
+								<x:String>MacOS</x:String>
+					        </Picker.Items>
+					    </Picker>
+					</Grid>
+
+					<Button Text="Отправить" x:Name="sendButton" Clicked="SendButtonClicked" />
+				</StackLayout>
+
+				<Label x:Name="thanksLabel" Text="Спасибо за Ваш ответ!" HorizontalTextAlignment="Center" />
+				
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
 </ContentPage>
