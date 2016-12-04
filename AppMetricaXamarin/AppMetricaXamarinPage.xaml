@@ -58,7 +58,7 @@
 						<carousel:CarouselViewControl.ItemTemplate>
 							<DataTemplate>
 								<Grid>
-									<oxy:PlotView Model="{Binding}" Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" HeightRequest="240" />
+									<oxy:PlotView Model="{Binding PlotModel}" Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" HeightRequest="240" />
 
 									<!-- Workaround for swipe gesture -->
 									<ContentView Grid.Row="0" Grid.Column="0" VerticalOptions="Fill" HorizontalOptions="Fill" />
@@ -66,7 +66,7 @@
 							</DataTemplate>
 						</carousel:CarouselViewControl.ItemTemplate>
 					</carousel:CarouselViewControl>
-					<Button Text="Обновить" />
+					<Button Text="Обновить" x:Name="updateButton" Clicked="UpdateResultsClicked" />
 				</StackLayout>
 				
 			</StackLayout>

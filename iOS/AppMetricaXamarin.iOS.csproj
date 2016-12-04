@@ -125,6 +125,10 @@
     <Reference Include="OxyPlot.Xamarin.Forms.Platform.iOS">
       <HintPath>..\packages\OxyPlot.Xamarin.Forms.1.0.0-unstable1983\lib\Xamarin.iOS10\OxyPlot.Xamarin.Forms.Platform.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta1\lib\netstandard1.1\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AppMetricaXamarin\AppMetricaXamarin.csproj">
